@@ -1,13 +1,13 @@
 PDS4 Local Data Dictionary Processing Report
 
 Configuration:
-   LDDTool Version        14.1.2
+   LDDTool Version        15.2.3
    LDD Version Id:        1.0.0.0
    LDD Label Version Id:  1.25
    LDD Discipline (T/F):  true
    LDD Namespace URL:     http://pds.nasa.gov/pds4/
    LDD URN Prefix:        urn:nasa:pds:
-   Time                   Sat Mar 18 18:12:41 UTC 2023
+   Time                   Mon Nov 25 19:11:02 UTC 2024
    Common Schema          [PDS4_PDS_1J00.xsd]
    Common Schematron      [PDS4_PDS_1J00.sch]
    IM Version Id:         1.19.0.0
@@ -15,12 +15,11 @@ Configuration:
    IM Label Version Id:   1.25
    IM Object Model        [UpperModel.pont]
    IM Data Dictionary     [dd11179.pins]
-   IM Configuration File  [MDPTNConfigClassDisp.xml]
    IM Glossary            [Glossary.pins]
    IM Document Spec       [DMDocument.pins]
 
 Parameters:
-   Input File             [/home/runner/work/ldd-template/ldd-template/src/PDS4_EXAMPLE_IngestLDD.xml]
+   Input File             [/home/runner/work/ldd-lcross/ldd-lcross/src/PDS4_EXAMPLE_IngestLDD.xml]
    PDS Processing         true
    LDD Processing         true
    Discipline LDD         true
@@ -65,7 +64,7 @@ Parsed Input - Classes:
 
    Associations
 
-      local identifier      my_first_attribute
+      local identifier      example:my_first_attribute
       minimum occurrences   1
       maximum occurrences   1
       reference type        attribute_of
