@@ -1,10 +1,10 @@
 
->>  INFO LDDTOOL Version: 15.2.2
+>>  INFO LDDTOOL Version: 15.2.3
 >>  INFO IM Version Id: 1.23.0.0
 >>  INFO IM Namespace Id: pds
 >>  INFO IM Label Version Id: 1.0
->>  INFO Date: Mon Nov 18 19:13:24 UTC 2024
->>  INFO PARENT_DIR: /tmp/lddtool-15.2.2/Data/
+>>  INFO Date: Mon Nov 25 19:11:04 UTC 2024
+>>  INFO PARENT_DIR: /tmp/lddtool-15.2.3/Data/
 
 >>> INFO Init:  - Config.Properties Namespace Id Using:pds
 >>> INFO Init:  - LDD Dictionary_Type is Discipline
@@ -22,7 +22,7 @@ Input:
      - LDD Flag: true
      - Export JSON Flag: true
 
-     - Ingest LDD(s): /home/runner/work/ldd-template/ldd-template/src/PDS4_EXAMPLE_IngestLDD.xml
+     - Ingest LDD(s): /home/runner/work/ldd-lcross/ldd-lcross/src/PDS4_EXAMPLE_IngestLDD.xml
 
 Output:
 
