@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 Schematron for Name Space Id:lcross  Version:1.0.0.0 - Thu Jan 09 17:38:08 UTC 2025 -->
+  <!-- PDS4 Schematron for Name Space Id:lcross  Version:1.0.0.0 - Wed Jan 15 19:17:20 UTC 2025 -->
   <!-- Generated from the PDS4 Information Model Version 1.13.0.0 - System Build 10a -->
   <!-- *** This PDS4 schematron file is an operational deliverable. *** -->
 <sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
