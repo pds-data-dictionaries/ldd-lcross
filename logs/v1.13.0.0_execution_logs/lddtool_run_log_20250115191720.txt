@@ -3,7 +3,7 @@
 >>  INFO IM Version Id: 1.13.0.0
 >>  INFO IM Namespace Id: pds
 >>  INFO IM Label Version Id: 1.19
->>  INFO Date: Thu Jan 09 17:38:08 UTC 2025
+>>  INFO Date: Wed Jan 15 19:17:20 UTC 2025
 >>  INFO PARENT_DIR: /tmp/lddtool-15.2.4/Data/
 
 >>> ERROR Init:  - LDD Dictionary_Type not Found:TBD_dictionary_type  Defaulting to Discipline
