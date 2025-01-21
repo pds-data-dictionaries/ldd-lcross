@@ -1,30 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?xml-model href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1D00.sch"
+<?xml-model href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1E00.sch"
     schematypens="http://purl.oclc.org/dsdl/schematron"?>
 
 <!-- 
     06/15/2020 GEO/EAG Initial version of the LCROSS mission dictionary for PDS3 to PDS4 migration.
-    
+        
     11/20/2024 GEO/JGW Minor updates for dictionary release.
     
+    1/21/2025 GEO/EAG/JGW Added producer_name. Added Ground_Based_Parameters to support ground-based data sets.
 -->
 
 <Ingest_LDD xmlns="http://pds.nasa.gov/pds4/pds/v1"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1D00.xsd">
+    xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1E00.xsd">
     <name>LCROSS Mission Dictionary</name>
-    <ldd_version_id>1.0.0.0</ldd_version_id>
+    <ldd_version_id>1.1.0.0</ldd_version_id>
+    <dictionary_type>Mission</dictionary_type>
     <full_name>Jennifer Ward</full_name>
     <steward_id>geo</steward_id>
     <namespace_id>lcross</namespace_id>
     <comment>
         The LCROSS mission dictionary contains a class with attributes specific to the 
         LCROSS mission and instruments. This dictionary was created for the migration
-        of LCROSS data products from PDS3 to PDS4.
-        
-        Built with: lddtool -plJ PDS4_LCROSS_IngestLDD.xml
-        
+        of LCROSS data products from PDS3 to PDS4.        
     </comment>
     <last_modification_date_time>2024-11-20</last_modification_date_time>
     
@@ -32,6 +31,7 @@
       <lcross:LCROSS_Parameters>
           <lcross:Mission_Parameters>
               <lcross:product_type>Raw Image</lcross:product_type>
+              <lcross:producer_name>Marc W. Buie</lcross:producer_name>
               <lcross:producer_institution_name>Ames Research Center</lcross:producer_institution_name>
               <lcross:mission_phase_name>Impact</lcross:mission_phase_name>
               <lcross:spacecraft_clock_start_count>000003460354569</lcross:spacecraft_clock_start_count>
@@ -64,8 +64,14 @@
              <lcross:packet_timestamp>3460345242</lcross:packet_timestamp>
              <lcross:vsp_bracket_number>2</lcross:vsp_bracket_number>
           </lcross:VSP_Instrument_State>
+          <lcross:Ground_Based_Parameters>
+             <lcross:right_ascension unit="deg">79.82917</lcross:right_ascension>
+             <lcross:declination unit="deg">23.07750</lcross:declination>
+             <lcross:exposure_duration unit="sec">0.500000</lcross:exposure_duration>
+             <lcross:filter_name>NMSUND2.5+MSSSOV</lcross:filter_name>
+             <lcross:center_filter_wavelength unit="micrometer">0.550000</lcross:center_filter_wavelength>
+          </lcross:Ground_Based_Parameters>    
       </lcross:LCROSS_Parameters>
-        
     -->
     <!-- Atrributes for the Mission_Parameters Class -->
     
@@ -84,11 +90,11 @@
             <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
             <DD_Permissible_Value>
                 <value>Raw Image</value>
-                <value_meaning>A raw product.</value_meaning>
+                <value_meaning>A raw image product.</value_meaning>
             </DD_Permissible_Value>
             <DD_Permissible_Value>
                 <value>Calibrated Image</value>
-                <value_meaning>A radiometrically calibrated product.</value_meaning>
+                <value_meaning>A radiometrically calibrated image product.</value_meaning>
             </DD_Permissible_Value>
             <DD_Permissible_Value>
                 <value>Raw Spectrum</value>
@@ -96,7 +102,7 @@
             </DD_Permissible_Value>
             <DD_Permissible_Value>
                 <value>Calibrated Spectrum</value>
-                <value_meaning>A radiometrically calibrated spectrum.</value_meaning>
+                <value_meaning>A radiometrically calibrated spectrum product.</value_meaning>
             </DD_Permissible_Value>
             <DD_Permissible_Value>
                 <value>Raw Data</value>
@@ -106,6 +112,19 @@
                 <value>Calibrated Data</value>
                 <value_meaning>Calibrated data from an instrument.</value_meaning>
             </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>producer_name</name>
+        <version_id>1.0</version_id>
+        <local_identifier>lcross.producer_name</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The name of the person who produced the data product.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
         </DD_Value_Domain>
     </DD_Attribute>
     
@@ -189,6 +208,8 @@
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
             <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <minimum_characters>15</minimum_characters>
+            <maximum_characters>15</maximum_characters>
         </DD_Value_Domain>
     </DD_Attribute>  
     
@@ -535,10 +556,97 @@
             <value_data_type>ASCII_Integer</value_data_type>
         </DD_Value_Domain>
     </DD_Attribute>
+    
+    <!-- Attribute definitions for the ground-based parameter class -->
+    
+    <DD_Attribute>
+        <name>right_ascension_angle</name>
+        <version_id>1.0</version_id>
+        <local_identifier>lcross.right_ascension</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The right_ascension_angle attribute provides the
+            value of right ascension (RA) as an angle. Right ascension is
+            measured from the vernal equinox or the first point of Aries,
+            which is the place on the celestial sphere where the Sun crosses
+            the celestial equator from south to north at the March equinox.
+            Right ascension is measured continuously in a full circle from
+            that equinox towards the east. Right ascension is used in
+            conjunction with the declination attribute to specify a point on
+            the sky. </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>declination</name>
+        <version_id>1.0</version_id>
+        <local_identifier>lcross.declination</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The declination_angle (Dec) attribute provides
+            the value of an angle on the celestial sphere, measured north
+            from the celestial equator to the point in question. (For points
+            south of the celestial equator, negative values are used.)
+            Declination is used in conjunction with right ascension
+            (right_ascension_angle) to specify
+            a point on the sky.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+   <DD_Attribute>
+        <name>exposure_length</name>
+        <version_id>1.0</version_id>
+        <local_identifier>lcross.exposure_length</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>Provides the length of time for an exposure.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
 
+    
+    <DD_Attribute>
+        <name>filter_name</name>
+        <version_id>1.0</version_id>
+        <local_identifier>lcross.filter_name</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The commonly used name of a filter the is part of an imaging system.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>center_filter_wavelength</name>
+        <version_id>1.0</version_id>
+        <local_identifier>lcross.center_filter_wavelength</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>The center wavelength of a filter used in an imaging system.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Length</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
     <!-- End of attribute definitions -->
 
 <!-- Classes -->    
+    
     <DD_Class>
         <name>MIR_Instrument_State</name>
         <version_id>1.0</version_id>
@@ -668,7 +776,47 @@
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
     </DD_Class>
-
+    
+    <DD_Class>
+        <name>Ground_Based_Parameters</name>
+        <version_id>1.0</version_id>
+        <local_identifier>lcross.Ground_Based_Parameters</local_identifier>
+        <submitter_name>Susan Slavney</submitter_name>
+        <definition>Container class for ground-based observation parameters.</definition>
+        <abstract_flag>false</abstract_flag>
+        <element_flag>false</element_flag>
+        <DD_Association>
+            <identifier_reference>lcross.right_ascension</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>lcross.declination</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>lcross.exposure_length</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>lcross.filter_name</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>lcross.center_filter_wavelength</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    
     <DD_Class>
         <name>Mission_Parameters</name>
         <version_id>1.0</version_id>
@@ -680,6 +828,12 @@
         <element_flag>false</element_flag>
         <DD_Association>
             <identifier_reference>lcross.product_type</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>lcross.producer_name</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
@@ -768,6 +922,12 @@
         </DD_Association>
         <DD_Association>
             <identifier_reference>lcross.VSP_Instrument_State</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>lcross.Ground_Based_Parameters</identifier_reference>
             <reference_type>component_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
