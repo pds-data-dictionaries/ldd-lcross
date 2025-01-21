@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 Schematron for Name Space Id:lcross  Version:1.0.0.0 - Wed Jan 15 19:17:20 UTC 2025 -->
-  <!-- Generated from the PDS4 Information Model Version 1.13.0.0 - System Build 10a -->
+  <!-- PDS4 Schematron for Name Space Id:lcross  Version:1.1.0.0 - Tue Jan 21 14:35:09 UTC 2025 -->
+  <!-- Generated from the PDS4 Information Model Version 1.14.0.0 - System Build 10b -->
   <!-- *** This PDS4 schematron file is an operational deliverable. *** -->
 <sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
 
@@ -8,7 +8,7 @@
 
   <sch:ns uri="http://www.w3.org/2001/XMLSchema-instance" prefix="xsi"/>
   <sch:ns uri="http://pds.nasa.gov/pds4/pds/v1" prefix="pds"/>
-  <sch:ns uri="http://pds.nasa.gov/pds4/lcross/v1" prefix="lcross"/>
+  <sch:ns uri="http://pds.nasa.gov/pds4/mission/lcross/v1" prefix="lcross"/>
 
 		   <!-- ================================================ -->
 		   <!-- NOTE:  There are two types of schematron rules.  -->
@@ -18,6 +18,34 @@
 		   <!--        lists. These two types of rules have been -->
 		   <!--        merged together in the rules below.       -->
 		   <!-- ================================================ -->
+  <sch:pattern>
+    <sch:rule context="lcross:Ground_Based_Parameters/lcross:center_filter_wavelength">
+      <sch:assert test="@unit = ('AU', 'Angstrom', 'cm', 'km', 'm', 'micrometer', 'mm', 'nm')">
+        <title>lcross:Ground_Based_Parameters/lcross:center_filter_wavelength/lcross:center_filter_wavelength</title>
+        The attribute @unit must be equal to one of the following values 'AU', 'Angstrom', 'cm', 'km', 'm', 'micrometer', 'mm', 'nm'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="lcross:Ground_Based_Parameters/lcross:declination">
+      <sch:assert test="@unit = ('arcmin', 'arcsec', 'deg', 'hr', 'mrad', 'rad')">
+        <title>lcross:Ground_Based_Parameters/lcross:declination/lcross:declination</title>
+        The attribute @unit must be equal to one of the following values 'arcmin', 'arcsec', 'deg', 'hr', 'mrad', 'rad'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="lcross:Ground_Based_Parameters/lcross:exposure_length">
+      <sch:assert test="@unit = ('day', 'hr', 'julian day', 'microseconds', 'min', 'ms', 's', 'yr')">
+        <title>lcross:Ground_Based_Parameters/lcross:exposure_length/lcross:exposure_length</title>
+        The attribute @unit must be equal to one of the following values 'day', 'hr', 'julian day', 'microseconds', 'min', 'ms', 's', 'yr'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="lcross:Ground_Based_Parameters/lcross:right_ascension_angle">
+      <sch:assert test="@unit = ('arcmin', 'arcsec', 'deg', 'hr', 'mrad', 'rad')">
+        <title>lcross:Ground_Based_Parameters/lcross:right_ascension_angle/lcross:right_ascension_angle</title>
+        The attribute @unit must be equal to one of the following values 'arcmin', 'arcsec', 'deg', 'hr', 'mrad', 'rad'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
   <sch:pattern>
     <sch:rule context="lcross:MIR_Instrument_State/lcross:calibration_valid">
       <sch:assert test=". = ('No', 'Yes')">

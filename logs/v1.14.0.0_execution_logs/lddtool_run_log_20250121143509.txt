@@ -1,0 +1,45 @@
+
+>>  INFO LDDTOOL Version: 15.2.4
+>>  INFO IM Version Id: 1.14.0.0
+>>  INFO IM Namespace Id: pds
+>>  INFO IM Label Version Id: 1.20
+>>  INFO Date: Tue Jan 21 14:35:09 UTC 2025
+>>  INFO PARENT_DIR: /tmp/lddtool-15.2.4/Data/
+
+>>> INFO Init:  - Config.Properties Namespace Id Found:lcross
+>>> INFO Init:  - Config.Properties Namespace Id Using:lcross
+>>> INFO Init:  - LDD Dictionary_Type is Mission
+>>> INFO Attribute: <spacecraft_clock_start_count> - The default minimum characters provided by the attribute's data type is being overridden with 15
+>>> INFO Attribute: <spacecraft_clock_start_count> - The default maximum characters provided by the attribute's data type is being overridden with 15
+>>> INFO Attribute: <intercept_point_latitude> - The default minimum value provided by the attribute's data type is being overridden with -90.0
+>>> INFO Attribute: <intercept_point_latitude> - The default maximum value provided by the attribute's data type is being overridden with 90.0
+>>> INFO Attribute: <intercept_point_longitude> - The default minimum value provided by the attribute's data type is being overridden with 0.0
+>>> INFO Attribute: <intercept_point_longitude> - The default maximum value provided by the attribute's data type is being overridden with 360.0
+>>> INFO Attribute: <operating_setting_value> - The default minimum value provided by the attribute's data type is being overridden with 0
+>>> INFO Attribute: <operating_setting_value> - The default maximum value provided by the attribute's data type is being overridden with 15
+>>> INFO Attribute: <integration_time> - The default minimum value provided by the attribute's data type is being overridden with 0
+>>> INFO Attribute: <gain_value> - The default minimum value provided by the attribute's data type is being overridden with 0
+
+ -- LDDTool Execution Summary --
+     0 warning(s)
+     0 error(s)
+     0 fatal error(s)
+
+Input:
+
+     - IM Version: 1E00
+     - PDS4 Flag: true
+     - LDD Flag: true
+     - IM Version: true
+     - Export JSON Flag: true
+
+     - Ingest LDD(s): /home/runner/work/ldd-lcross/ldd-lcross/src/PDS4_LCROSS_IngestLDD.xml
+
+Output:
+
+     - ./PDS4_LCROSS_1E00_1100.xsd
+     - ./PDS4_LCROSS_1E00_1100.sch
+     - ./PDS4_LCROSS_1E00_1100.xml
+     - ./export/PDS4_PDS_1E00.JSON
+
+>>  INFO Exit(0)
